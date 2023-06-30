@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:11:18 by anttorre          #+#    #+#             */
-/*   Updated: 2023/06/30 12:19:49 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/06/30 17:17:06 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ int32_t	main(int argc, char **av)
 		ft_printf("%s\n", game->map_cpy[i]);
 		i++;
 	}
-	/* game->mlx = mlx_init(WIDTH, HEIGHT, "Test", true);
+	game->mlx = mlx_init(game->col * 50, game->row * 50, "SO LONG", true);
 	if (!game->mlx)
 		error();
 	mlx_loop(game->mlx);
-	mlx_terminate(game->mlx); */
+	mlx_terminate(game->mlx);
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:13:03 by anttorre          #+#    #+#             */
-/*   Updated: 2023/06/30 12:24:16 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/06/30 16:03:57 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <unistd.h>
 # define TRUE 1
 # define FALSE 0
+# define WIDTH 50
+# define HEIGHT 50
 
 typedef struct s_point
 {
@@ -35,9 +37,9 @@ typedef struct so_long
 	mlx_t	*mlx;
 	char	**map_area;
 	char	**map_cpy;
-	size_t	col;
+	int		col;
 	size_t	line_l;
-	size_t	row;
+	int		row;
 	t_point	player;
 	int		items;
 	int		p;

@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 14:35:51 by anttorre          #+#    #+#             */
-/*   Updated: 2023/06/30 12:15:41 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/06/30 17:13:23 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_map_area(t_game *game, int i)
 {
-	int j;
+	int	j;
 
 	j = i;
 	if (game->map_area)
@@ -36,6 +36,7 @@ int	read_map(char *map_name, t_game *game)
 	int		fd;
 	char	*line;
 
+	line = NULL;
 	if (check_extension(map_name) == FALSE)
 		return (FALSE);
 	fd = open(map_name, O_RDONLY);

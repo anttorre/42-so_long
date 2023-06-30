@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 16:26:56 by anttorre          #+#    #+#             */
-/*   Updated: 2023/06/30 12:44:52 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/06/30 15:51:10 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	check_map(t_game *game)
 		if (game->line_l != ft_strlen(game->map_area[i])
 			|| game->col == game->row)
 		{
-			ft_printf("Error: El mapa no es válido\n");
+			ft_printf("Error: El mapa no es válido.\n");
 			return (FALSE);
 		}
 	}
@@ -44,7 +44,7 @@ int	check_map(t_game *game)
 		return (FALSE);
 	if (check_map2(game) == FALSE)
 	{
-		ft_printf("Error: contenido del mapa incorrecto\n");
+		ft_printf("Error: contenido del mapa incorrecto.\n");
 		return (FALSE);
 	}
 	valid_way(game, (t_point){game->col, game->row}, game->player);
@@ -65,7 +65,7 @@ int	check_map1(t_game *game)
 		if (game->map_area[0][j] != '1' || game->map_area[game->row
 			- 1][j] != '1')
 		{
-			ft_printf("Error: Mapa inválido\n");
+			ft_printf("Error: Mapa inválido. No hay paredes suficientes.\n");
 			return (FALSE);
 		}
 	}
@@ -74,7 +74,7 @@ int	check_map1(t_game *game)
 		if (game->map_area[i][0] != '1' || game->map_area[i][game->col
 			- 1] != '1')
 		{
-			ft_printf("Error: Mapa inválido\n");
+			ft_printf("Error: Mapa inválido. No hay paredes suficientes.\n");
 			return (FALSE);
 		}
 	}
@@ -115,9 +115,9 @@ void	valid_way(t_game *game, t_point size, t_point current)
 		|| current.y >= size.y || game->map_cpy[current.y][current.x] == '1'
 		|| game->map_cpy[current.y][current.x] == '*')
 		return ;
-	if (game->map_area[current.y][current.x] == 'C')
+	if (game->map_cpy[current.y][current.x] == 'C')
 		game->items_cpy++;
-	if (game->map_area[current.y][current.x] == 'E')
+	if (game->map_cpy[current.y][current.x] == 'E')
 		game->e_cpy++;
 	game->map_cpy[current.y][current.x] = '*';
 	valid_way(game, size, (t_point){current.x - 1, current.y});
