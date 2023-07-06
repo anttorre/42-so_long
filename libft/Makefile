@@ -1,3 +1,15 @@
+#//= Colors =//#
+BOLD	:= \033[1m
+BLACK	:= \033[30;1m
+RED		:= \033[31;1m
+GREEN	:= \033[32;1m
+YELLOW	:= \033[33;1m
+BLUE	:= \033[34;1m
+MAGENTA	:= \033[35;1m
+CYAN	:= \033[36;1m
+WHITE	:= \033[37;1m
+RESET	:= \033[0m
+
 NAME = libft.a
 
 CC = gcc
@@ -42,22 +54,30 @@ OBJS_BONUS = $(BONUS:.c=.o)
 all : $(NAME)
 
 $(NAME) :	$(OBJS)
-			$(LIB) $(NAME) $(OBJS)
+			@echo "$(MAGENTA)$(BOLD)Compiling libft...$(RESET)"
+			@$(LIB) $(NAME) $(OBJS)
+			@echo "$(CYAN)$(BOLD)Done.$(RESET)"
 
 $(OBJS) :	$(FILES)
-			$(CC) $(FLAGS) -c $(FILES)
+			@$(CC) $(FLAGS) -c $(FILES)
 
 $(OBJS_BONUS) :	$(BONUS)
-			$(CC) $(FLAGS) -c $(BONUS)
+			@$(CC) $(FLAGS) -c $(BONUS)
 
 bonus : $(OBJS) $(OBJS_BONUS)
-	$(LIB) $(NAME) $(OBJS) $(OBJS_BONUS)
+		@echo "$(YELLOW)$(BOLD)Compiling libft bonus...$(RESET)"
+		@$(LIB) $(NAME) $(OBJS) $(OBJS_BONUS)
+		@echo "$(GREEN)$(BOLD)Done.$(RESET)"
 
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS)
+	@echo "$(RED)$(BOLD)Cleaning objects from libft...$(RESET)"
+	@rm -f $(OBJS) $(OBJS_BONUS)
+	@echo "$(GREEN)$(BOLD)Done.$(RESET)"
 
 fclean:
-	rm -f $(NAME) $(OBJS) $(OBJS_BONUS)
+	@echo "$(RED)$(BOLD)Cleaning all files from libft...$(RESET)"
+	@rm -f $(NAME) $(OBJS) $(OBJS_BONUS)
+	@echo "$(GREEN)$(BOLD)Done.$(RESET)"
 
 re : fclean all
 
