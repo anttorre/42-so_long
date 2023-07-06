@@ -67,7 +67,7 @@ $(OBJS_BONUS) :	$(BONUS)
 bonus : $(OBJS) $(OBJS_BONUS)
 		@echo "$(YELLOW)$(BOLD)Compiling libft bonus...$(RESET)"
 		@$(LIB) $(NAME) $(OBJS) $(OBJS_BONUS)
-		@echo "$(GREEN)$(BOLD)Done.$(RESET)"
+		@echo "$(CYAN)$(BOLD)Done.$(RESET)"
 
 clean:
 	@echo "$(RED)$(BOLD)Cleaning objects from libft...$(RESET)"

@@ -51,27 +51,27 @@ $(OBJS):	$(SRCS)
 			@$(CC) $(CFLAGS) -c $(SRCS)
 
 $(LIBFT):
-			make -C $(LIBFT_PATH)
-			make bonus -C $(LIBFT_PATH)
+			@make -s -C $(LIBFT_PATH)
+			@make bonus -s -C $(LIBFT_PATH)
 
 $(MLX):
-			make -C $(MLX_PATH)
+			@make -s -C $(MLX_PATH)
 
 all : $(NAME)
 
 clean:
 	@echo "$(RED)$(BOLD)Cleaning objects from so_long...$(RESET)"
-	@rm -f $(OBJS)
-	@make clean -C $(MLX_PATH)
-	@make clean -C $(LIBFT_PATH)
-	@echo "$(GREEN)$(BOLD)Done$(RESET)"
+	@rm -f $(OBJS) $(LIBFT) $(MLX) $(SO_LONG)
+	@echo "$(GREEN)$(BOLD)Done.$(RESET)"
+	@make clean -s -C $(MLX_PATH)
+	@make clean -s -C $(LIBFT_PATH)
 
 fclean:
 	@echo "$(RED)$(BOLD)Cleaning all files from so_long...$(RESET)"
 	@rm -f $(NAME) $(OBJS) $(SO_LONG)
-	@make fclean -C $(MLX_PATH)
-	@make fclean -C $(LIBFT_PATH)
 	@echo "$(GREEN)$(BOLD)Done.$(RESET)"
+	@make fclean -s -C $(MLX_PATH)
+	@make fclean -s -C $(LIBFT_PATH)
 
 re : fclean all
 
