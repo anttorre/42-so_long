@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
+/*   By: anttorre <anttorre@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 14:35:51 by anttorre          #+#    #+#             */
-/*   Updated: 2023/06/30 17:13:23 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/06 19:51:19 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ int	read_map(char *map_name, t_game *game)
 int	allocate_map(char *line, t_game *game, int fd, char *map_name)
 {
 	line = get_next_line(fd);
-	if (line == NULL)
+	if (!line)
 	{
 		ft_printf("Error: Mapa vacío.\n");
-		return (FALSE);
+		return (free(line), FALSE);
 	}
 	while (line != NULL)
 	{

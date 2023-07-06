@@ -61,18 +61,20 @@ all : $(NAME)
 
 clean:
 	@echo "$(RED)$(BOLD)Cleaning objects from so_long...$(RESET)"
-	@rm -f $(OBJS) $(LIBFT) $(MLX) $(SO_LONG)
+	@rm -f $(OBJS)
 	@echo "$(GREEN)$(BOLD)Done.$(RESET)"
 	@make clean -s -C $(MLX_PATH)
 	@make clean -s -C $(LIBFT_PATH)
 
 fclean:
 	@echo "$(RED)$(BOLD)Cleaning all files from so_long...$(RESET)"
-	@rm -f $(NAME) $(OBJS) $(SO_LONG)
+	@rm -f $(NAME) $(OBJS) $(SO_LONG) $(LIBFT) $(MLX)
 	@echo "$(GREEN)$(BOLD)Done.$(RESET)"
 	@make fclean -s -C $(MLX_PATH)
 	@make fclean -s -C $(LIBFT_PATH)
 
 re : fclean all
 
-.PHONY : all re fclean clean bonus
+solong : all clean
+
+.PHONY : all re fclean clean bonus solong
