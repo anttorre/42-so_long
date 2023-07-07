@@ -33,9 +33,9 @@ SO_LONG = so_long.a
 
 LIB = ar rcs
 
-LIB_SYS = -Iinclude -ldl -lglfw -pthread -lm
+#LIB_SYS = -Iinclude -ldl -lglfw -pthread -lm
 
-#LIB_SYS = -Iinclude -lglfw -L "/Users/anttorre/.brew/opt/glfw/lib/"
+LIB_SYS = -Iinclude -lglfw -L "/Users/anttorre/.brew/opt/glfw/lib/"
 
 SRCS = $(wildcard *.c)
 

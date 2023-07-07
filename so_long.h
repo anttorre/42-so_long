@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anttorre <anttorre@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:13:03 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/06 19:41:20 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/07 13:18:41 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int					check_map1(t_game *game);
 int					check_map2(t_game *game);
 int					check_extension(char *map_name);
 void				valid_way(t_game *game, t_point size, t_point current);
-void				set_images_to_game(t_game *game, t_img *img);
+int					set_images_to_game(t_game *game, t_img *img);
 int					initialize_s_img(t_game *game, t_img *images);
 void				error(void);
 

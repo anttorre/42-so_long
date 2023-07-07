@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_images.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anttorre <anttorre@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:48:54 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/06 19:52:20 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/07 14:33:29 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,46 @@ int	initialize_s_img(t_game *game, t_img *i)
 	return (TRUE);
 }
 
-void	set_images_to_game(t_game *game, t_img *img)
+static int	set_images_to_game1(t_game *game, t_img *img, int i, int j)
+{
+	if (game->map_area[i][j] == '1')
+		if (mlx_image_to_window(game->mlx, img->img_wall, j * 50, i * 50) < 0)
+			return (FALSE);
+	if (game->map_area[i][j] == '0')
+		if (mlx_image_to_window(game->mlx, img->img_floor, j * 50, i * 50) < 0)
+			return (FALSE);
+	if (game->map_area[i][j] == 'E')
+	{
+		if (mlx_image_to_window(game->mlx, img->img_floor, j * 50, i * 50) < 0)
+			return (FALSE);
+		if (mlx_image_to_window(game->mlx, img->img_box_close, j * 50, i
+				* 50) < 0)
+			return (FALSE);
+	}
+	return (TRUE);
+}
+
+static	int	set_images_to_game2(t_game *game, t_img *img, int i, int j)
+{
+	if (game->map_area[i][j] == 'C')
+	{
+		if (mlx_image_to_window(game->mlx, img->img_floor, j * 50, i * 50) < 0)
+			return (FALSE);
+		if (mlx_image_to_window(game->mlx, img->img_ring, j * 50, i * 50) < 0)
+			return (FALSE);
+	}
+	if (game->map_area[i][j] == 'P')
+	{
+		if (mlx_image_to_window(game->mlx, img->img_floor, j * 50, i * 50) < 0)
+			return (FALSE);
+		if (mlx_image_to_window(game->mlx, img->img_tailsright, j * 50, i
+				* 50) < 0)
+			return (FALSE);
+	}
+	return (TRUE);
+}
+
+int	set_images_to_game(t_game *game, t_img *img)
 {
 	int	i;
 	int	j;
@@ -60,45 +99,11 @@ void	set_images_to_game(t_game *game, t_img *img)
 		j = -1;
 		while (++j < game->col)
 		{
-			if (game->map_area[i][j] == '1')
-			{
-				if (mlx_image_to_window(game->mlx, img->img_wall, j * 50, i
-						* 50) < 0)
-					error();
-			}
-			if (game->map_area[i][j] == '0')
-			{
-				if (mlx_image_to_window(game->mlx, img->img_floor, j * 50, i
-						* 50) < 0)
-					error();
-			}
-			if (game->map_area[i][j] == 'E')
-			{
-				if (mlx_image_to_window(game->mlx, img->img_floor, j * 50, i
-						* 50) < 0)
-					error();
-				if (mlx_image_to_window(game->mlx, img->img_box_close, j * 50, i
-						* 50) < 0)
-					error();
-			}
-			if (game->map_area[i][j] == 'C')
-			{
-				if (mlx_image_to_window(game->mlx, img->img_floor, j * 50, i
-						* 50) < 0)
-					error();
-				if (mlx_image_to_window(game->mlx, img->img_ring, j * 50, i
-						* 50) < 0)
-					error();
-			}
-			if (game->map_area[i][j] == 'P')
-			{
-				if (mlx_image_to_window(game->mlx, img->img_floor, j * 50, i
-						* 50) < 0)
-					error();
-				if (mlx_image_to_window(game->mlx, img->img_tailsright, j * 50,
-						i * 50) < 0)
-					error();
-			}
+			if (set_images_to_game1(game, img, i, j) == FALSE)
+				return (FALSE);
+			if (set_images_to_game2(game, img, i, j) == FALSE)
+				return (FALSE);
 		}
 	}
+	return (TRUE);
 }

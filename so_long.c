@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anttorre <anttorre@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:11:18 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/06 19:42:50 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/07 14:38:50 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,19 @@ void	initialize_s_game(t_game *game)
 	game->e_cpy = 0;
 }
 
+static int	main1(t_game *game, t_img *images)
+{
+	if (initialize_s_img(game, images) == FALSE)
+		return (free(game), free(images), EXIT_FAILURE);
+	if (set_images_to_game(game, images) == FALSE)
+		return (free(game), free(images), EXIT_FAILURE);
+	return (TRUE);
+}
+
 int32_t	main(int argc, char **av)
 {
 	t_game	*game;
 	t_img	*images;
-	int		i;
 
 	if (argc == 1 || argc > 2)
 		return (ft_printf("Error: Introduzca un mapa.\n"), EXIT_FAILURE);
@@ -47,26 +55,12 @@ int32_t	main(int argc, char **av)
 		return (free(game), free(images), EXIT_FAILURE);
 	if (check_map(game) == FALSE)
 		return (free(game), free(images), EXIT_FAILURE);
-	i = 0;
-	while (i < game->row)
-	{
-		ft_printf("%s\n", game->map_area[i]);
-		i++;
-	}
-	ft_printf("\n");
-	i = 0;
-	while (i < game->row)
-	{
-		ft_printf("%s\n", game->map_cpy[i]);
-		i++;
-	}
 	game->mlx = mlx_init(game->col * 50, game->row * 50, "SO LONG", true);
 	if (!game->mlx)
 		return (free(game), free(images), EXIT_FAILURE);
-	if (initialize_s_img(game, images) == FALSE)
+	if (main1(game, images) == FALSE)
 		return (free(game), free(images), EXIT_FAILURE);
-	set_images_to_game(game, images);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
-	return (EXIT_SUCCESS);
+	return (free(game), free(images), EXIT_SUCCESS);
 }
