@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 16:26:56 by anttorre          #+#    #+#             */
-/*   Updated: 2023/06/30 15:51:10 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/10 15:47:49 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	check_map(t_game *game)
 	valid_way(game, (t_point){game->col, game->row}, game->player);
 	if (game->e != game->e_cpy || game->items != game->items_cpy)
 		return (ft_printf("Error: No hay un camino válido.\n"), FALSE);
+	game->items = 0;
 	return (TRUE);
 }
 
@@ -118,7 +119,11 @@ void	valid_way(t_game *game, t_point size, t_point current)
 	if (game->map_cpy[current.y][current.x] == 'C')
 		game->items_cpy++;
 	if (game->map_cpy[current.y][current.x] == 'E')
+	{	
 		game->e_cpy++;
+		game->box.x = current.x;
+		game-> box.y = current.y;
+	}
 	game->map_cpy[current.y][current.x] = '*';
 	valid_way(game, size, (t_point){current.x - 1, current.y});
 	valid_way(game, size, (t_point){current.x + 1, current.y});

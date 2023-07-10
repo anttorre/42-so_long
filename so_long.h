@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:13:03 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/07 13:18:41 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/10 15:44:52 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,13 @@ typedef struct so_long
 	size_t			line_l;
 	int				row;
 	t_point			player;
+	t_point			box;
 	int				items;
 	int				p;
 	int				e;
 	int				items_cpy;
 	int				e_cpy;
-}					t_game;
-
-typedef struct s_img
-{
+	int				moves;
 	mlx_texture_t	*texture_box_close;
 	mlx_image_t		*img_box_close;
 	mlx_texture_t	*texture_box_open;
@@ -68,7 +66,7 @@ typedef struct s_img
 	mlx_image_t		*img_tailsright;
 	mlx_texture_t	*texture_wall;
 	mlx_image_t		*img_wall;
-}					t_img;
+}					t_game;
 
 void				initialize_s_game(t_game *game);
 void				free_map_area(t_game *game, int i);
@@ -82,8 +80,9 @@ int					check_map1(t_game *game);
 int					check_map2(t_game *game);
 int					check_extension(char *map_name);
 void				valid_way(t_game *game, t_point size, t_point current);
-int					set_images_to_game(t_game *game, t_img *img);
-int					initialize_s_img(t_game *game, t_img *images);
+int					set_images_to_game(t_game *game);
+int					initialize_s_img(t_game *g);
+void				p_move(mlx_key_data_t keydata, void *param);
 void				error(void);
 
 #endif
