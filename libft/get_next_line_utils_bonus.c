@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:59:03 by anttorre          #+#    #+#             */
-/*   Updated: 2023/06/27 16:37:33 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:18:18 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	if (!s1 || !s2)
 		return (free(s1), s1 = NULL, NULL);
 	s1_length = ft_strlen_gnl(s1);
-	result = (char *)ft_calloc_gnl((s1_length + ft_strlen_gnl(s2) + 1), sizeof(char));
+	result = (char *)ft_calloc_gnl((s1_length + ft_strlen_gnl(s2) + 1),
+			sizeof(char));
 	if (!result)
 		return (free(s1), s1 = NULL, NULL);
 	i = -1;

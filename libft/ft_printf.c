@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 14:05:03 by anttorre          #+#    #+#             */
-/*   Updated: 2023/06/02 19:55:48 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:17:21 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,62 +140,3 @@ int	ft_printf(char const *s, ...)
 		return (free(f), -1);
 	return (free(f), tl);
 }
-
-/* #include <limits.h>
-#include <stdio.h>
-
-int	main(void)
-{
-	int	a;
-
-	a = ft_printf("% +d % d %#x %#X", -10, 10, 0, 0);
-	printf("\nMi Total: %d\n", a);
-	a = printf("%+d % d %#x %#X", -10, 10, 0, 0);
-	printf("\nPrintf Total: %d\n", a);
-} */
-
-
-// #include <limits.h>
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	char			c;
-// 	char			d;
-// 	unsigned int	u;
-// 	int				pf;
-// 	int				fp;
-// 	int				num;
-// 	char			*s = "@@@";
-// 	//char			*s2 = NULL;
-
-// 	c = 'a';
-// 	d = 'b';
-// 	num = 0x7FFFFFFF;
-// 	u = 0xFFFFFFFF;
-// 	//uncomment for bonus
-// 	pf = printf("printf : a%pbc%%defghij%uk%s%+dlm% inop%#Xq%#xr\n", (void *)&c, u, s, num, 0, u, u);
-// 	fp = ft_printf("printf : a%pbc%%defghij%uk%s%+dlm% inop%#Xq%#xr\n", (void *)&c, u, s, num, 0, u, u);
-// 	printf ("pf = %d, fp = %d\n", pf, fp);
-// 	// pf = printf("%.3d\n", -1234);
-// 	// fp = ft_printf("%.3d\n", -1234);
-// 	// printf ("pf = %d, fp = %d\n", pf, fp);
-// 	// pf = printf("%-9sScience!\n", "Aperture");
-// 	// fp = ft_printf("%-9sScience!\n", "Aperture");
-// 	// printf ("pf = %d, fp = %d\n", pf, fp);
-// 	// pf = printf("%8p-%8s\n", NULL, s2);
-// 	// fp = ft_printf("%8p-%8s\n", NULL, s2);
-// 	// printf ("pf = %d, fp = %d\n", pf, fp);
-	
-// /* 	pf = printf("%li|%i|%i\n", -2147483648, 0, 0x7FFFFFFF);
-// 	fp = ft_printf("%i|%i|%i\n", -2147483648, 0, 0x7FFFFFFF);
-// 	pf = printf("%ld|%d|%d|%d|%d|%d|%d|%d|%d\n", -2147483648, 0, 0x7FFFFFFF, 1, 2, 3, 4 , 5 , 6);
-// 	fp = ft_printf("%d|%d|%d|%d|%d|%d|%d|%d|%d\n", -2147483648, 0, 0x7FFFFFFF, 1, 2, 3, 4 , 5 , 6);
-// 	printf ("pf = %d, fp = %d\n", pf, fp);
-// 	pf = printf("%p-%s\n", NULL, s2);
-// 	fp = ft_printf("%p-%s\n", NULL, s2);
-// 	printf ("pf = %d, fp = %d\n", pf, fp);
-// 	pf = printf("printf : a%pbc%%de%cfg%uhij%sk%dlm%inop%Xq%xr\n", (void *)&c, d, u, s, num, 0, u, u);
-// 	fp = ft_printf("ftprint: a%pbc%%de%cfg%uhij%sk%dlm%inop%Xq%xr\n", (void *)&c, d, u, s, num, 0, u, u);
-// 	printf ("pf = %d, fp = %d\n", pf, fp); */
-// 	return (0);
-// }

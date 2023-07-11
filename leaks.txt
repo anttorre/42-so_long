@@ -1,0 +1,35 @@
+Process:         so_long [982]
+Path:            /Volumes/VOLUME/*/so_long
+Load Address:    0x102f4d000
+Identifier:      so_long
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [7039]
+
+Date/Time:       2023-07-11 13:55:24.102 +0200
+Launch Time:     2023-07-11 13:55:18.287 +0200
+OS Version:      Mac OS X 10.15.7 (19H2026)
+Report Version:  7
+Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
+Analysis Tool Version:  Xcode 12.4 (12D4e)
+
+Physical footprint:         28.0M
+Physical footprint (peak):  38.7M
+----
+
+leaks Report Version: 4.0
+Process 982: 21004 nodes malloced for 11620 KB
+Process 982: 10 leaks for 160 total leaked bytes.
+
+    10 (160 bytes) << TOTAL >>
+      1 (16 bytes) ROOT LEAK: 0x7fe4b6c04440 [16]  length: 4  "111"
+      1 (16 bytes) ROOT LEAK: 0x7fe4b6c0ace0 [16]  length: 4  "1P1"
+      1 (16 bytes) ROOT LEAK: 0x7fe4b6c0b010 [16]  length: 4  "1C1"
+      1 (16 bytes) ROOT LEAK: 0x7fe4b6c0b270 [16]  length: 4  "1E1"
+      1 (16 bytes) ROOT LEAK: 0x7fe4b6c0e450 [16]  length: 4  "1E1"
+      1 (16 bytes) ROOT LEAK: 0x7fe4b6c0e470 [16]  length: 4  "1P1"
+      1 (16 bytes) ROOT LEAK: 0x7fe4b6c0e4b0 [16]  length: 3  "111"
+      1 (16 bytes) ROOT LEAK: 0x7fe4b6c0e7b0 [16]  length: 3  "111"
+      1 (16 bytes) ROOT LEAK: 0x7fe4b6c0e7c0 [16]  length: 4  "111"
+      1 (16 bytes) ROOT LEAK: 0x7fe4b6c0e810 [16]  length: 4  "1C1"
+

@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:13:03 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/10 15:44:52 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/11 13:12:46 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,13 @@ void				valid_way(t_game *game, t_point size, t_point current);
 int					set_images_to_game(t_game *game);
 int					initialize_s_img(t_game *g);
 void				p_move(mlx_key_data_t keydata, void *param);
-void				error(void);
+void				move_player_c(t_game *g, int new_x, int new_y,
+						void *img_tails);
+void				move_player_e(t_game *g, int new_x, int new_y,
+						void *img_tails);
+void				move_player_1(t_game *g, int new_x, int new_y,
+						void *img_tails);
+void				keypress(t_game *g, int new_x, int new_y, void *img_tails);
+void				free_maps(t_game *g);
 
 #endif

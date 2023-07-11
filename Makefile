@@ -37,7 +37,7 @@ LIB = ar rcs
 
 LIB_SYS = -Iinclude -lglfw -L "/Users/anttorre/.brew/opt/glfw/lib/"
 
-SRCS = so_long.c check_map.c map.c set_images.c player_movement.c
+SRCS = so_long.c map_check.c map.c set_images.c player_movement.c
 
 OBJS = $(SRCS:.c=.o)
 
