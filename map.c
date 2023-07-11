@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
+/*   By: anttorre <anttorre@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 14:35:51 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/11 15:22:36 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:59:40 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 /* void	free_maps(t_game *g)
 {
+	char	**map_area_start;
+	char	**map_cpy_start;
 	char	**map_area_start;
 	char	**map_cpy_start;
 
@@ -32,13 +34,11 @@
 	}
 	free(map_cpy_start);
 } */
-
 void	free_maps(t_game *g)
 {
 	char	**map_area_start;
 	char	**map_cpy_start;
 
-	ft_printf("Entra a liberar los mapas\n");
 	if (!g->map_area && !g->map_cpy)
 		return ;
 	map_area_start = g->map_area;
@@ -58,6 +58,8 @@ void	free_maps(t_game *g)
 }
 /* void	free_maps(t_game *g)
 {
+	int	j;
+
 	i = 0;
 	if (!g->map_area && !g->map_cpy)
 		return ;
@@ -152,14 +154,16 @@ int	allocate_map1(char *line, t_game *game, int fd, char *map_name)
 	while (line != NULL)
 	{
 		game->col = ft_strlen(line);
-		game->map_area[i] = ft_calloc(game->col, sizeof(char));
-		game->map_cpy[i] = ft_calloc(game->col, sizeof(char));
+		game->map_area[i] = ft_calloc(game->col + (line[game->col - 1] != '\n'),
+				sizeof(char));
+		game->map_cpy[i] = ft_calloc(game->col + (line[game->col - 1] != '\n'),
+				sizeof(char));
 		if (!game->map_area[i] && !game->map_cpy[i])
 			return (free_map_area(game, i), free(line), FALSE);
-		ft_strlcpy(game->map_area[i], line, ft_strlen(line)
-				+ (line[ft_strlen(line) - 1] != '\n'));
-		ft_strlcpy(game->map_cpy[i], line, ft_strlen(line)
-				+ (line[ft_strlen(line) - 1] != '\n'));
+		ft_strlcpy(game->map_area[i], line, game->col + (line[game->col
+				- 1] != '\n'));
+		ft_strlcpy(game->map_cpy[i], line, ft_strlen(line) + (line[game->col
+				- 1] != '\n'));
 		free(line);
 		line = get_next_line(fd);
 		i++;
