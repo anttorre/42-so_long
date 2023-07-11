@@ -6,11 +6,24 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:11:18 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/11 15:16:45 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/11 16:27:02 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	clean_textures(t_game *g)
+{
+	mlx_delete_texture(g->texture_box_close);
+	mlx_delete_texture(g->texture_box_open);
+	mlx_delete_texture(g->texture_floor);
+	mlx_delete_texture(g->texture_ring);
+	mlx_delete_texture(g->texture_tailsdown);
+	mlx_delete_texture(g->texture_tailsleft);
+	mlx_delete_texture(g->texture_tailsright);
+	mlx_delete_texture(g->texture_tailsup);
+	mlx_delete_texture(g->texture_wall);
+}
 
 void	initialize_s_game(t_game *game)
 {
@@ -35,7 +48,7 @@ static int	main1(t_game *game)
 	return (TRUE);
 }
 
-void ft_leaks(void)
+void	ft_leaks(void)
 {
 	system("leaks -q so_long");
 }
