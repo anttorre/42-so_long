@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:48:54 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/10 12:10:24 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/11 16:27:16 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	initialize_s_img(t_game *g)
 	g->img_tailsright = mlx_texture_to_image(g->mlx, g->texture_tailsright);
 	g->img_tailsup = mlx_texture_to_image(g->mlx, g->texture_tailsup);
 	g->img_wall = mlx_texture_to_image(g->mlx, g->texture_wall);
+	clean_textures(g);
 	if (img_fail(g) == FALSE)
 		return (FALSE);
 	return (TRUE);

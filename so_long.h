@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:13:03 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/11 13:12:46 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/11 16:20:49 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ void				move_player_1(t_game *g, int new_x, int new_y,
 						void *img_tails);
 void				keypress(t_game *g, int new_x, int new_y, void *img_tails);
 void				free_maps(t_game *g);
+void				clean_textures(t_game *g);
 
 #endif
