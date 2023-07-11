@@ -6,16 +6,11 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:11:18 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/11 13:34:45 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:16:45 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	leaks()
-{
-	system("leaks so_long > leaks.txt");
-}
 
 void	initialize_s_game(t_game *game)
 {
@@ -40,10 +35,16 @@ static int	main1(t_game *game)
 	return (TRUE);
 }
 
+void ft_leaks(void)
+{
+	system("leaks -q so_long");
+}
+
 int32_t	main(int argc, char **av)
 {
 	t_game	*game;
 
+	atexit(ft_leaks);
 	if (argc == 1 || argc > 2)
 		return (ft_printf("Error: Introduzca un mapa.\n"), EXIT_FAILURE);
 	game = malloc(sizeof(t_game));
@@ -61,6 +62,5 @@ int32_t	main(int argc, char **av)
 		return (free(game), EXIT_FAILURE);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
-	leaks();
 	return (free(game), EXIT_SUCCESS);
 }

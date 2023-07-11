@@ -5,16 +5,14 @@
             "label": "C/C++: gcc build active file",
             "command": "/usr/bin/gcc",
             "args": [
-                "-fdiagnostics-color=always",
+				"-fdiagnostics-color=always",
                 "-g",
                 "*.c",
 				"libft/libft.a",
 				"MLX42/libmlx42.a",
 				"-Iinclude",
-				"-ldl",
 				"-lglfw",
-				"-pthread",
-				"-lm",
+				"-L '/Users/anttorre/.brew/opt/glfw/lib/'",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
