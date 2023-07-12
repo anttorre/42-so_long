@@ -15,6 +15,8 @@ RESET	:= \033[0m
 
 NAME = so_long
 
+NAME_BONUS = so_long_bonus
+
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
@@ -41,7 +43,7 @@ SRCS = src/so_long.c src/map_check.c src/map.c src/set_images.c src/player_movem
 
 OBJS = $(SRCS:.c=.o)
 
-SRCS_BONUS = srcb/so_long_bonus.c srcb/map_check_bonus.c srcb/map_bonus.c srcb/set_images_bonus.c srcb/player_movement_bonus.c
+SRCS_BONUS = srcb/so_long_bonus.c srcb/map_check_bonus.c srcb/map_bonus.c srcb/set_images_bonus.c srcb/player_movement_bonus.c srcb/monster_movement_bonus.c
 
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
@@ -66,10 +68,12 @@ $(MLX):
 
 all : $(NAME)
 
-bonus : $(OBJS_BONUS) $(LIBFT) $(MLX)
+bonus : $(NAME_BONUS)
+
+$(NAME_BONUS): $(OBJS_BONUS) $(LIBFT) $(MLX)
 			@echo "$(YELLOW)$(BOLD)Compiling so_long_bonus...$(RESET)"
 			@$(LIB) $(SO_LONG) $(OBJS_BONUS)
-			@$(CC) $(CFLAGS) $(SO_LONG) $(MLX) $(LIBFT) $(LIB_SYS) -o $(NAME)
+			@$(CC) $(CFLAGS) $(SO_LONG) $(MLX) $(LIBFT) $(LIB_SYS) -o $(NAME_BONUS)
 			@echo "$(CYAN)$(BOLD)Done$(RESET)"
 
 clean:
@@ -81,7 +85,7 @@ clean:
 
 fclean:
 			@echo "$(RED)$(BOLD)Cleaning all files from so_long...$(RESET)"
-			@rm -f $(NAME) $(OBJS) $(OBJS_BONUS) $(SO_LONG) $(LIBFT) $(MLX)
+			@rm -f $(NAME) $(NAME_BONUS) $(OBJS) $(OBJS_BONUS) $(SO_LONG) $(LIBFT) $(MLX)
 			@echo "$(GREEN)$(BOLD)Done.$(RESET)"
 			@make fclean -s -C $(MLX_PATH)
 			@make fclean -s -C $(LIBFT_PATH)

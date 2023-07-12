@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:13:03 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/12 12:39:05 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/12 15:15:58 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct so_long
 	int				items_cpy;
 	int				e_cpy;
 	int				moves;
+	int				monster_move;
 	mlx_texture_t	*texture_box_close;
 	mlx_image_t		*img_box_close;
 	mlx_texture_t	*texture_box_open;
@@ -82,5 +83,8 @@ void				p_move(mlx_key_data_t keydata, void *param);
 void				free_maps(t_game *g);
 void				clean_textures(t_game *g);
 int					img_fail(t_game *g);
+void				monster_sprite(t_game *g);
+void				monster_sprite1(t_game *g);
+
 
 #endif

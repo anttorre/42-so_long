@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:48:54 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/12 12:40:31 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/12 13:47:53 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	img_fail(t_game *g)
 		|| !g->texture_tailsright || !g->texture_tailsup || !g->texture_wall
 		|| !g->img_box_close || !g->img_box_open || !g->img_floor
 		|| !g->img_ring || !g->img_tailsdown || !g->img_tailsleft
-		|| !g->img_tailsright || !g->img_tailsup || !g->img_wall)
+		|| !g->img_tailsright || !g->img_tailsup || !g->img_wall
+		|| !g->img_e1 || !g->img_e2)
 		return (FALSE);
 	return (TRUE);
 }
@@ -52,6 +53,14 @@ static int	set_images_to_game1(t_game *game, int i, int j)
 		if (mlx_image_to_window(game->mlx, game->img_floor, j * 50, i * 50) < 0)
 			return (FALSE);
 		if (mlx_image_to_window(game->mlx, game->img_box_close, j * 50, i
+				* 50) < 0)
+			return (FALSE);
+	}
+	if (game->map_area[i][j] == 'M')
+	{
+		if (mlx_image_to_window(game->mlx, game->img_floor, j * 50, i * 50) < 0)
+			return (FALSE);
+		if (mlx_image_to_window(game->mlx, game->img_e1, j * 50, i
 				* 50) < 0)
 			return (FALSE);
 	}

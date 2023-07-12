@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:11:18 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/12 12:40:05 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:51:52 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void	initialize_s_game(t_game *game)
 	game->items_cpy = 0;
 	game->e_cpy = 0;
 	game->moves = 0;
+	game->monster_move = FALSE;
 }
 
 static void	initialize_s_img1(t_game *g)
