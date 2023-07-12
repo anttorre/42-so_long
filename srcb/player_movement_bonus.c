@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_movement.c                                  :+:      :+:    :+:   */
+/*   player_movement_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 14:44:15 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/12 12:03:57 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/12 12:12:35 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static void	keypress(t_game *g, int new_x, int new_y, void *img_tails);
 static void	move_player_c(t_game *g, int new_x, int new_y, void *img_tails);

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   map_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 14:35:51 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/12 11:56:53 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/12 12:12:44 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static int	allocate_map1(char *line, t_game *game, int fd, char *map_name);
 static int	allocate_map(char *line, t_game *game, int fd, char *map_name);
