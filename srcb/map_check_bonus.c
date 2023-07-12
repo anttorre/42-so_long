@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 16:26:56 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/12 12:12:39 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/12 15:32:51 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ int	check_map(t_game *game)
 	}
 	valid_way(game, (t_point){game->col, game->row}, game->player);
 	if (game->e != game->e_cpy || game->items != game->items_cpy)
-		return (ft_printf("Error: No hay un camino válido.\n"), FALSE);
+		return (ft_printf("Error: No hay un camino válido.\n"),
+			FALSE);
 	game->items = 0;
 	return (TRUE);
 }
@@ -118,7 +119,8 @@ static void	valid_way(t_game *game, t_point size, t_point current)
 {
 	if (current.x < 0 || current.x >= size.x || current.y < 0
 		|| current.y >= size.y || game->map_cpy[current.y][current.x] == '1'
-		|| game->map_cpy[current.y][current.x] == '*')
+		|| game->map_cpy[current.y][current.x] == '*'
+		|| game->map_area[current.y][current.x] == 'M')
 		return ;
 	if (game->map_cpy[current.y][current.x] == 'C')
 		game->items_cpy++;
