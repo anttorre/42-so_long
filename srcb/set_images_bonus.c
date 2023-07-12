@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:48:54 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/12 12:12:30 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/12 12:40:31 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	clean_textures(t_game *g)
 	mlx_delete_texture(g->texture_tailsright);
 	mlx_delete_texture(g->texture_tailsup);
 	mlx_delete_texture(g->texture_wall);
+	mlx_delete_texture(g->texture_e1);
+	mlx_delete_texture(g->texture_e2);
 }
 
 static int	set_images_to_game1(t_game *game, int i, int j)

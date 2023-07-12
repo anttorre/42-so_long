@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:13:03 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/12 12:08:08 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/12 12:39:05 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,10 @@ typedef struct so_long
 	mlx_image_t		*img_tailsright;
 	mlx_texture_t	*texture_wall;
 	mlx_image_t		*img_wall;
+	mlx_texture_t	*texture_e1;
+	mlx_image_t		*img_e1;
+	mlx_texture_t	*texture_e2;
+	mlx_image_t		*img_e2;
 }					t_game;
 
 /*------PROTOYPES-------*/

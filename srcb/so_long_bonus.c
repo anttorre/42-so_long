@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:11:18 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/12 12:12:26 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/12 12:40:05 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@ static void	initialize_s_game(t_game *game)
 	game->items_cpy = 0;
 	game->e_cpy = 0;
 	game->moves = 0;
+}
+
+static void	initialize_s_img1(t_game *g)
+{
+	g->texture_e1 = mlx_load_png("./tiles/enemy1.png");
+	g->texture_e2 = mlx_load_png("./tiles/enemy2.png");
+	g->img_e1 = mlx_texture_to_image(g->mlx, g->texture_e1);
+	g->img_e2 = mlx_texture_to_image(g->mlx, g->texture_e2);
 }
 
 static int	initialize_s_img(t_game *g)
@@ -45,6 +53,7 @@ static int	initialize_s_img(t_game *g)
 	g->img_tailsright = mlx_texture_to_image(g->mlx, g->texture_tailsright);
 	g->img_tailsup = mlx_texture_to_image(g->mlx, g->texture_tailsup);
 	g->img_wall = mlx_texture_to_image(g->mlx, g->texture_wall);
+	initialize_s_img1(g);
 	clean_textures(g);
 	if (img_fail(g) == FALSE)
 		return (FALSE);
