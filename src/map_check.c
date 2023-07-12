@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 16:26:56 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/10 15:47:49 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/12 11:58:37 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static int	check_map1(t_game *game);
+static int	check_map2(t_game *game);
+static void	valid_way(t_game *game, t_point size, t_point current);
 
 int	check_extension(char *map_name)
 {
@@ -54,7 +58,7 @@ int	check_map(t_game *game)
 	return (TRUE);
 }
 
-int	check_map1(t_game *game)
+static int	check_map1(t_game *game)
 {
 	int	i;
 	int	j;
@@ -82,7 +86,7 @@ int	check_map1(t_game *game)
 	return (TRUE);
 }
 
-int	check_map2(t_game *game)
+static int	check_map2(t_game *game)
 {
 	int	i;
 	int	j;
@@ -110,7 +114,7 @@ int	check_map2(t_game *game)
 	return (TRUE);
 }
 
-void	valid_way(t_game *game, t_point size, t_point current)
+static void	valid_way(t_game *game, t_point size, t_point current)
 {
 	if (current.x < 0 || current.x >= size.x || current.y < 0
 		|| current.y >= size.y || game->map_cpy[current.y][current.x] == '1'

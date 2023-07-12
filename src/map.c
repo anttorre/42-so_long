@@ -6,11 +6,14 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 14:35:51 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/11 16:17:52 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/12 11:56:53 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static int	allocate_map1(char *line, t_game *game, int fd, char *map_name);
+static int	allocate_map(char *line, t_game *game, int fd, char *map_name);
 
 void	free_maps(t_game *g)
 {
@@ -35,7 +38,7 @@ void	free_maps(t_game *g)
 	free(map_cpy_start);
 }
 
-void	free_map_area(t_game *game, int i)
+static void	free_map_area(t_game *game, int i)
 {
 	int	j;
 
@@ -77,7 +80,7 @@ int	read_map(char *map_name, t_game *game)
 	return (TRUE);
 }
 
-int	allocate_map(char *line, t_game *game, int fd, char *map_name)
+static int	allocate_map(char *line, t_game *game, int fd, char *map_name)
 {
 	line = get_next_line(fd);
 	if (!line)
@@ -101,7 +104,7 @@ int	allocate_map(char *line, t_game *game, int fd, char *map_name)
 	return (free(line), TRUE);
 }
 
-int	allocate_map1(char *line, t_game *game, int fd, char *map_name)
+static int	allocate_map1(char *line, t_game *game, int fd, char *map_name)
 {
 	int	i;
 

@@ -6,11 +6,16 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 14:44:15 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/11 15:04:19 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/12 12:03:57 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static void	keypress(t_game *g, int new_x, int new_y, void *img_tails);
+static void	move_player_c(t_game *g, int new_x, int new_y, void *img_tails);
+static void	move_player_e(t_game *g, int new_x, int new_y, void *img_tails);
+static void	move_player_1(t_game *g, int new_x, int new_y, void *img_tails);
 
 void	p_move(mlx_key_data_t keydata, void *param)
 {
@@ -32,7 +37,22 @@ void	p_move(mlx_key_data_t keydata, void *param)
 		keypress(g, g->player.x, g->player.y - 1, g->img_tailsup);
 }
 
-void	move_player_c(t_game *g, int new_x, int new_y, void *img_tails)
+static void	keypress(t_game *g, int new_x, int new_y, void *img_tails)
+{
+	if (g->map_area[new_y][new_x] == 'C')
+		move_player_c(g, new_x, new_y, img_tails);
+	else if (g->map_area[new_y][new_x] == 'E' && g->items == g->items_cpy)
+	{
+		free_maps(g);
+		mlx_close_window(g->mlx);
+	}
+	else if (g->map_area[new_y][new_x] == 'E')
+		move_player_e(g, new_x, new_y, img_tails);
+	else if (g->map_area[new_y][new_x] != '1')
+		move_player_1(g, new_x, new_y, img_tails);
+}
+
+static void	move_player_c(t_game *g, int new_x, int new_y, void *img_tails)
 {
 	mlx_image_to_window(g->mlx, g->img_floor, g->player.x * 50, g->player.y
 		* 50);
@@ -53,7 +73,7 @@ void	move_player_c(t_game *g, int new_x, int new_y, void *img_tails)
 	ft_printf("Nº movimientos: %d\n", g->moves);
 }
 
-void	move_player_e(t_game *g, int new_x, int new_y, void *img_tails)
+static void	move_player_e(t_game *g, int new_x, int new_y, void *img_tails)
 {
 	mlx_image_to_window(g->mlx, g->img_floor, g->player.x * 50, g->player.y
 		* 50);
@@ -68,7 +88,7 @@ void	move_player_e(t_game *g, int new_x, int new_y, void *img_tails)
 	ft_printf("Nº movimientos: %d\n", g->moves);
 }
 
-void	move_player_1(t_game *g, int new_x, int new_y, void *img_tails)
+static void	move_player_1(t_game *g, int new_x, int new_y, void *img_tails)
 {
 	mlx_image_to_window(g->mlx, g->img_floor, g->player.x * 50, g->player.y
 		* 50);
@@ -80,19 +100,4 @@ void	move_player_1(t_game *g, int new_x, int new_y, void *img_tails)
 	mlx_image_to_window(g->mlx, img_tails, g->player.x * 50, g->player.y * 50);
 	g->moves++;
 	ft_printf("Nº movimientos: %d\n", g->moves);
-}
-
-void	keypress(t_game *g, int new_x, int new_y, void *img_tails)
-{
-	if (g->map_area[new_y][new_x] == 'C')
-		move_player_c(g, new_x, new_y, img_tails);
-	else if (g->map_area[new_y][new_x] == 'E' && g->items == g->items_cpy)
-	{
-		free_maps(g);
-		mlx_close_window(g->mlx);
-	}
-	else if (g->map_area[new_y][new_x] == 'E')
-		move_player_e(g, new_x, new_y, img_tails);
-	else if (g->map_area[new_y][new_x] != '1')
-		move_player_1(g, new_x, new_y, img_tails);
 }
