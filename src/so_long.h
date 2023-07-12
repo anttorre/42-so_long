@@ -6,17 +6,17 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:13:03 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/11 16:20:49 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/12 11:08:17 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 /*-------INCLUDES-------*/
-# include "MLX42/include/MLX42/MLX42.h"
-# include "libft/ft_printf.h"
-# include "libft/get_next_line_bonus.h"
-# include "libft/libft.h"
+# include "../MLX42/include/MLX42/MLX42.h"
+# include "../libft/ft_printf.h"
+# include "../libft/get_next_line_bonus.h"
+# include "../libft/libft.h"
 # include <fcntl.h>
 # include <math.h>
 # include <stdlib.h>

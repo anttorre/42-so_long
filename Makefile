@@ -37,7 +37,7 @@ LIB = ar rcs
 
 LIB_SYS = -Iinclude -lglfw -L "/Users/anttorre/.brew/opt/glfw/lib/"
 
-SRCS = so_long.c map_check.c map.c set_images.c player_movement.c
+SRCS = src/so_long.c src/map_check.c src/map.c src/set_images.c src/player_movement.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -47,8 +47,8 @@ $(NAME) :	$(OBJS) $(LIBFT) $(MLX)
 			@$(CC) $(CFLAGS) $(SO_LONG) $(MLX) $(LIBFT) $(LIB_SYS) -o $(NAME)
 			@echo "$(CYAN)$(BOLD)Done$(RESET)"
 
-$(OBJS):	$(SRCS)
-			@$(CC) $(CFLAGS) -c $(SRCS)
+$(OBJS): src/%.o : src/%.c 
+			@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
 			@make -s -C $(LIBFT_PATH)
