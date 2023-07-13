@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 14:44:15 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/12 15:16:57 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/13 12:13:45 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ void	p_move(mlx_key_data_t keydata, void *param)
 static void	keypress(t_game *g, int new_x, int new_y, void *img_tails)
 {
 	if (g->map_area[new_y][new_x] == 'C')
+	{
 		move_player_c(g, new_x, new_y, img_tails);
+		put_nbr(g);
+	}
 	else if (g->map_area[new_y][new_x] == 'E' && g->items == g->items_cpy)
 	{
 		free_maps(g);
@@ -61,42 +64,48 @@ static void	keypress(t_game *g, int new_x, int new_y, void *img_tails)
 		mlx_close_window(g->mlx);
 	}
 	else if (g->map_area[new_y][new_x] == 'E')
+	{
 		move_player_e(g, new_x, new_y, img_tails);
+		put_nbr(g);
+	}
 	else if (g->map_area[new_y][new_x] != '1')
+	{
 		move_player_1(g, new_x, new_y, img_tails);
+		put_nbr(g);
+	}
 }
 
 static void	move_player_c(t_game *g, int new_x, int new_y, void *img_tails)
 {
 	mlx_image_to_window(g->mlx, g->img_floor, g->player.x * 50, g->player.y
-			* 50);
+		* 50);
 	if (g->map_area[g->player.y][g->player.x] == 'E')
 		mlx_image_to_window(g->mlx, g->img_box_close, g->player.x * 50,
-				g->player.y * 50);
+			g->player.y * 50);
 	g->player.x = new_x;
 	g->player.y = new_y;
 	g->map_area[g->player.y][g->player.x] = '0';
 	mlx_image_to_window(g->mlx, g->img_floor, g->player.x * 50, g->player.y
-			* 50);
+		* 50);
 	mlx_image_to_window(g->mlx, img_tails, g->player.x * 50, g->player.y * 50);
 	g->items++;
 	g->moves++;
 	if (g->items == g->items_cpy)
 		mlx_image_to_window(g->mlx, g->img_box_open, g->box.x * 50, g->box.y
-				* 50);
+			* 50);
 	ft_printf("Nº movimientos: %d\n", g->moves);
 }
 
 static void	move_player_e(t_game *g, int new_x, int new_y, void *img_tails)
 {
 	mlx_image_to_window(g->mlx, g->img_floor, g->player.x * 50, g->player.y
-			* 50);
+		* 50);
 	g->player.x = new_x;
 	g->player.y = new_y;
 	mlx_image_to_window(g->mlx, g->img_floor, g->player.x * 50, g->player.y
-			* 50);
+		* 50);
 	mlx_image_to_window(g->mlx, g->img_box_close, g->player.x * 50, g->player.y
-			* 50);
+		* 50);
 	mlx_image_to_window(g->mlx, img_tails, g->player.x * 50, g->player.y * 50);
 	g->moves++;
 	ft_printf("Nº movimientos: %d\n", g->moves);
@@ -105,10 +114,10 @@ static void	move_player_e(t_game *g, int new_x, int new_y, void *img_tails)
 static void	move_player_1(t_game *g, int new_x, int new_y, void *img_tails)
 {
 	mlx_image_to_window(g->mlx, g->img_floor, g->player.x * 50, g->player.y
-			* 50);
+		* 50);
 	if (g->map_area[g->player.y][g->player.x] == 'E')
 		mlx_image_to_window(g->mlx, g->img_box_close, g->player.x * 50,
-				g->player.y * 50);
+			g->player.y * 50);
 	g->player.x = new_x;
 	g->player.y = new_y;
 	mlx_image_to_window(g->mlx, img_tails, g->player.x * 50, g->player.y * 50);

@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 14:35:15 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/12 15:16:03 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/13 12:56:52 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,14 @@ void	monster_sprite1(t_game *g)
 		}
 	}
 	g->monster_move = FALSE;
+}
+
+void	put_nbr(t_game *g)
+{
+	char		*n;
+
+	n = ft_itoa(g->moves);
+	mlx_image_to_window(g->mlx, g->img_wall, 0, 0);
+	mlx_put_string(g->mlx, n, 0, 0);
+	free(n);
 }

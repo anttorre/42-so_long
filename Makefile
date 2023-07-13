@@ -33,6 +33,8 @@ LIBFT = $(LIBFT_PATH)/libft.a
 
 SO_LONG = so_long.a
 
+SO_LONG_BONUS = so_long_bonus.a
+
 LIB = ar rcs
 
 #LIB_SYS = -Iinclude -ldl -lglfw -pthread -lm
@@ -72,8 +74,8 @@ bonus : $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBJS_BONUS) $(LIBFT) $(MLX)
 			@echo "$(YELLOW)$(BOLD)Compiling so_long_bonus...$(RESET)"
-			@$(LIB) $(SO_LONG) $(OBJS_BONUS)
-			@$(CC) $(CFLAGS) $(SO_LONG) $(MLX) $(LIBFT) $(LIB_SYS) -o $(NAME_BONUS)
+			@$(LIB) $(SO_LONG_BONUS) $(OBJS_BONUS)
+			@$(CC) $(CFLAGS) $(SO_LONG_BONUS) $(MLX) $(LIBFT) $(LIB_SYS) -o $(NAME_BONUS)
 			@echo "$(CYAN)$(BOLD)Done$(RESET)"
 
 clean:
@@ -85,7 +87,7 @@ clean:
 
 fclean:
 			@echo "$(RED)$(BOLD)Cleaning all files from so_long...$(RESET)"
-			@rm -f $(NAME) $(NAME_BONUS) $(OBJS) $(OBJS_BONUS) $(SO_LONG) $(LIBFT) $(MLX)
+			@rm -f $(NAME) $(NAME_BONUS) $(OBJS) $(OBJS_BONUS) $(SO_LONG) $(SO_LONG_BONUS) $(LIBFT) $(MLX)
 			@echo "$(GREEN)$(BOLD)Done.$(RESET)"
 			@make fclean -s -C $(MLX_PATH)
 			@make fclean -s -C $(LIBFT_PATH)
