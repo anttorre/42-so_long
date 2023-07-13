@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 14:44:15 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/13 12:13:45 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/13 13:57:39 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,6 @@ void	p_move(mlx_key_data_t keydata, void *param)
 		free_maps(g);
 		mlx_close_window(g->mlx);
 	}
-	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
-		keypress(g, g->player.x - 1, g->player.y, g->img_tailsleft);
-	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
-		keypress(g, g->player.x + 1, g->player.y, g->img_tailsright);
-	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
-		keypress(g, g->player.x, g->player.y + 1, g->img_tailsdown);
-	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
-		keypress(g, g->player.x, g->player.y - 1, g->img_tailsup);
 	if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_S
 			|| keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_A)
 		&& keydata.action == MLX_PRESS)
@@ -44,6 +36,14 @@ void	p_move(mlx_key_data_t keydata, void *param)
 		else
 			monster_sprite1(g);
 	}
+	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
+		keypress(g, g->player.x - 1, g->player.y, g->img_tailsleft);
+	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
+		keypress(g, g->player.x + 1, g->player.y, g->img_tailsright);
+	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
+		keypress(g, g->player.x, g->player.y + 1, g->img_tailsdown);
+	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
+		keypress(g, g->player.x, g->player.y - 1, g->img_tailsup);
 }
 
 static void	keypress(t_game *g, int new_x, int new_y, void *img_tails)
