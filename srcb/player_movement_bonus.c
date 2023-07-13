@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 14:44:15 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/13 13:57:39 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:38:22 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ void	p_move(mlx_key_data_t keydata, void *param)
 
 	g = param;
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
-	{
-		free_maps(g);
-		mlx_close_window(g->mlx);
-	}
+		close_game(g);
 	if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_S
 			|| keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_A)
 		&& keydata.action == MLX_PRESS)
@@ -54,15 +51,9 @@ static void	keypress(t_game *g, int new_x, int new_y, void *img_tails)
 		put_nbr(g);
 	}
 	else if (g->map_area[new_y][new_x] == 'E' && g->items == g->items_cpy)
-	{
-		free_maps(g);
-		mlx_close_window(g->mlx);
-	}
+		close_game(g);
 	else if (g->map_area[new_y][new_x] == 'M')
-	{
-		free_maps(g);
-		mlx_close_window(g->mlx);
-	}
+		close_game(g);
 	else if (g->map_area[new_y][new_x] == 'E')
 	{
 		move_player_e(g, new_x, new_y, img_tails);

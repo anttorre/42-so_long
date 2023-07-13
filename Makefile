@@ -98,4 +98,4 @@ solong : all clean
 
 solongb : bonus clean
 
-.PHONY : all re fclean clean bonus solong
+.PHONY : all re fclean clean bonus solong solongb

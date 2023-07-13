@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:11:18 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/13 12:57:18 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:37:32 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,17 @@ static int	main1(t_game *game)
 	if (set_images_to_game(game) == FALSE)
 		return (free(game), EXIT_FAILURE);
 	mlx_key_hook(game->mlx, &p_move, game);
+	mlx_close_hook(game->mlx, &close_game, game);
 	return (TRUE);
+}
+
+void	close_game(void *param)
+{
+	t_game	*g;
+
+	g = param;
+	free_maps(g);
+	mlx_close_window(g->mlx);
 }
 
 void	ft_leaks(void)

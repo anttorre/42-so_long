@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 14:35:15 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/13 13:56:31 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:33:58 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,13 @@ void	put_nbr(t_game *g)
 	mlx_image_to_window(g->mlx, g->img_wall, 0, 0);
 	mlx_put_string(g->mlx, n, 0, 0);
 	free(n);
+}
+
+void	close_game(void *param)
+{
+	t_game	*g;
+
+	g = param;
+	free_maps(g);
+	mlx_close_window(g->mlx);
 }
