@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:11:18 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/14 14:30:39 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/14 14:40:35 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ static void	initialize_s_game(t_game *game)
 
 static int	initialize_s_img(t_game *g)
 {
-	g->texture_box_close = mlx_load_png("./tiles/boxclose.png");
-	g->texture_box_open = mlx_load_png("./tiles/boxopen.png");
-	g->texture_floor = mlx_load_png("./tiles/floor.png");
-	g->texture_ring = mlx_load_png("./tiles/ring.png");
-	g->texture_tailsdown = mlx_load_png("./tiles/tailsdown.png");
-	g->texture_tailsleft = mlx_load_png("./tiles/tailsleft.png");
-	g->texture_tailsright = mlx_load_png("./tiles/tailsright.png");
-	g->texture_tailsup = mlx_load_png("./tiles/tailsup.png");
-	g->texture_wall = mlx_load_png("./tiles/wall.png");
+	g->texture_box_close = mlx_load_png("./textures/boxclose.png");
+	g->texture_box_open = mlx_load_png("./textures/boxopen.png");
+	g->texture_floor = mlx_load_png("./textures/floor.png");
+	g->texture_ring = mlx_load_png("./textures/ring.png");
+	g->texture_tailsdown = mlx_load_png("./textures/tailsdown.png");
+	g->texture_tailsleft = mlx_load_png("./textures/tailsleft.png");
+	g->texture_tailsright = mlx_load_png("./textures/tailsright.png");
+	g->texture_tailsup = mlx_load_png("./textures/tailsup.png");
+	g->texture_wall = mlx_load_png("./textures/wall.png");
 	g->img_box_close = mlx_texture_to_image(g->mlx, g->texture_box_close);
 	g->img_box_open = mlx_texture_to_image(g->mlx, g->texture_box_open);
 	g->img_floor = mlx_texture_to_image(g->mlx, g->texture_floor);
