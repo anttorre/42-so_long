@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 14:44:15 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/13 15:38:22 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/14 12:28:13 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ static void	move_player_c(t_game *g, int new_x, int new_y, void *img_tails)
 	if (g->items == g->items_cpy)
 		mlx_image_to_window(g->mlx, g->img_box_open, g->box.x * 50, g->box.y
 			* 50);
-	ft_printf("Nº movimientos: %d\n", g->moves);
 }
 
 static void	move_player_e(t_game *g, int new_x, int new_y, void *img_tails)
@@ -99,7 +98,6 @@ static void	move_player_e(t_game *g, int new_x, int new_y, void *img_tails)
 		* 50);
 	mlx_image_to_window(g->mlx, img_tails, g->player.x * 50, g->player.y * 50);
 	g->moves++;
-	ft_printf("Nº movimientos: %d\n", g->moves);
 }
 
 static void	move_player_1(t_game *g, int new_x, int new_y, void *img_tails)
@@ -113,5 +111,4 @@ static void	move_player_1(t_game *g, int new_x, int new_y, void *img_tails)
 	g->player.y = new_y;
 	mlx_image_to_window(g->mlx, img_tails, g->player.x * 50, g->player.y * 50);
 	g->moves++;
-	ft_printf("Nº movimientos: %d\n", g->moves);
 }
