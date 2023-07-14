@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:11:18 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/13 15:35:16 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/14 12:23:27 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ static int	initialize_s_img(t_game *g)
 static int	main1(t_game *game)
 {
 	if (initialize_s_img(game) == FALSE)
-		return (free(game), EXIT_FAILURE);
+		return (free(game), FALSE);
 	if (set_images_to_game(game) == FALSE)
-		return (free(game), EXIT_FAILURE);
+		return (free(game), FALSE);
 	mlx_key_hook(game->mlx, &p_move, game);
 	mlx_close_hook(game->mlx, &close_game, game);
 	return (TRUE);
