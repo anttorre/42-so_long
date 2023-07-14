@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:11:18 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/14 12:23:27 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/14 14:31:08 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,15 @@ static int	main1(t_game *game)
 	return (TRUE);
 }
 
-void	ft_leaks(void)
+/* void	ft_leaks(void)
 {
 	system("leaks -q so_long");
-}
+} */
 
 int32_t	main(int argc, char **av)
 {
 	t_game	*game;
 
-	atexit(ft_leaks);
 	if (argc == 1 || argc > 2)
 		return (ft_printf("Error: Introduzca un mapa.\n"), EXIT_FAILURE);
 	game = malloc(sizeof(t_game));
