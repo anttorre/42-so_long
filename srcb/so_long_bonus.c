@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:11:18 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/14 14:40:04 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/14 15:08:54 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int32_t	main(int argc, char **av)
 		return (free(game), EXIT_FAILURE);
 	if (check_map(game) == FALSE)
 		return (free_maps(game), free(game), EXIT_FAILURE);
-	game->mlx = mlx_init(game->col * 50, game->row * 50, "SO LONG", true);
+	game->mlx = mlx_init(game->col * 50, game->row * 50, "SO LONG", TRUE);
 	if (!game->mlx)
 		return (free(game), EXIT_FAILURE);
 	if (main1(game) == FALSE)
