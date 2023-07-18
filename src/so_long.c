@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:11:18 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/14 15:08:47 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/18 13:10:25 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ static int	main1(t_game *game)
 		return (free(game), FALSE);
 	mlx_key_hook(game->mlx, &p_move, game);
 	mlx_close_hook(game->mlx, &close_game, game);
+	mlx_resize_hook(game->mlx, &resize_window, NULL);
 	return (TRUE);
 }
 
@@ -71,15 +72,16 @@ void	close_game(void *param)
 	mlx_close_window(g->mlx);
 }
 
-/* void	ft_leaks(void)
+void	ft_leaks(void)
 {
 	system("leaks -q so_long");
-} */
+}
 
 int32_t	main(int argc, char **av)
 {
 	t_game	*game;
 
+	atexit(ft_leaks);
 	if (argc == 1 || argc > 2)
 		return (ft_printf("Error: Introduzca un mapa.\n"), EXIT_FAILURE);
 	game = malloc(sizeof(t_game));
@@ -90,7 +92,7 @@ int32_t	main(int argc, char **av)
 		return (free(game), EXIT_FAILURE);
 	if (check_map(game) == FALSE)
 		return (free_maps(game), free(game), EXIT_FAILURE);
-	game->mlx = mlx_init(game->col * 50, game->row * 50, "SO LONG", true);
+	game->mlx = mlx_init(game->col * 50, game->row * 50, "SO LONG", TRUE);
 	if (!game->mlx)
 		return (free(game), EXIT_FAILURE);
 	if (main1(game) == FALSE)

@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 14:35:15 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/14 12:29:08 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/18 12:50:25 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,12 @@ void	close_game(void *param)
 	g = param;
 	free_maps(g);
 	mlx_close_window(g->mlx);
+}
+
+void	resize_window(int32_t width, int32_t height, void *param)
+{
+	(void)width;
+	(void)height;
+	(void)param;
+	mlx_set_setting(MLX_STRETCH_IMAGE, 1);
 }

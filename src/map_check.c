@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 16:26:56 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/12 11:58:37 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/18 13:46:14 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static int	check_map1(t_game *game)
 
 	i = 0;
 	j = -1;
-	while (++j < game->col)
+	while (++j < game->col - 1)
 	{
 		if (game->map_area[0][j] != '1' || game->map_area[game->row
 			- 1][j] != '1')

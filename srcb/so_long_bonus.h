@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:13:03 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/13 15:34:14 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/18 12:49:05 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ void				monster_sprite(t_game *g);
 void				monster_sprite1(t_game *g);
 void				put_nbr(t_game *g);
 void				close_game(void *param);
+void				resize_window(int32_t width, int32_t height, void *param);
 
 #endif

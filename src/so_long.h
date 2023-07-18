@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:13:03 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/13 15:35:44 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/17 15:50:06 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ void				free_maps(t_game *g);
 void				clean_textures(t_game *g);
 int					img_fail(t_game *g);
 void				close_game(void *param);
+void				resize_window(int32_t width, int32_t height, void *param);
 
 #endif
