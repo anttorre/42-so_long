@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 16:26:56 by anttorre          #+#    #+#             */
-/*   Updated: 2023/07/18 13:46:14 by anttorre         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:25:27 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static int	check_map1(t_game *game)
 		if (game->map_area[0][j] != '1' || game->map_area[game->row
 			- 1][j] != '1')
 		{
-			ft_printf("Error: Mapa inválido. No hay paredes suficientes.\n");
+			ft_printf("Error: Primera o ultima linea sin paredes\n");
 			return (FALSE);
 		}
 	}
@@ -79,7 +79,7 @@ static int	check_map1(t_game *game)
 		if (game->map_area[i][0] != '1' || game->map_area[i][game->col
 			- 1] != '1')
 		{
-			ft_printf("Error: Mapa inválido. No hay paredes suficientes.\n");
+			ft_printf("Error: Lineas intermedias sin paredes.\n");
 			return (FALSE);
 		}
 	}
